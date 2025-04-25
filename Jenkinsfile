@@ -27,14 +27,5 @@ post {
 	failure {
 		echo "Failure"
 	}
-	unstable {
-		echo "Unstable"
-	}
-	changed {
-		echo "Changed"
-	}
-	sandbox {
-		echo "Sandbox"
-	}
 }
 }
