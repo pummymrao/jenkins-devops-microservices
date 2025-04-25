@@ -27,5 +27,8 @@ post {
 	failure {
 		echo "Failure"
 	}
+	changed {
+		echo "Changed"
+	}
 }
 }
