@@ -17,4 +17,24 @@ pipeline {
 			}
 		}
 }
+post {
+	always {
+		echo "Always"
+	}
+	success {
+		echo "Success"
+	}
+	failure {
+		echo "Failure"
+	}
+	unstable {
+		echo "Unstable"
+	}
+	changed {
+		echo "Changed"
+	}
+	sandbox {
+		echo "Sandbox"
+	}
+}
 }
