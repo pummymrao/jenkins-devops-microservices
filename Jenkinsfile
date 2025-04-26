@@ -36,6 +36,29 @@ pipeline {
 		// 		sh "mvn failsafe:integration-test failsafe:verify"
 		// 	}
 		// }
+		stage('Package') {
+			steps {
+				sh "mvn package -DskipTests"
+			}
+		}
+		stage('Docker Build') {
+			steps {
+				script {
+					dockerImage = docker.build("pramodmra/currency-exchange-devops:{$env.BUILD_TAG}")
+					
+				}
+			}
+		}
+		stage('Docker Push') {
+			steps {
+				script {
+					docker.withRegistry('', 'a6dea94e-5c4b-4180-a76b-c4e1f74819d3') {
+						dockerImage.push()
+						dockerImage.push("latest")
+					}
+				}
+			}
+		}
 }
 post {
 	always {
