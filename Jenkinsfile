@@ -44,7 +44,7 @@ pipeline {
 		stage('Docker Build') {
 			steps {
 				script {
-					dockerImage = docker.build("pramodmra/currency-exchange-devops:{$env.BUILD_TAG}")
+					dockerImage = docker.build("pramodmra/currency-exchange-devops:${env.BUILD_TAG}")
 					
 				}
 			}
